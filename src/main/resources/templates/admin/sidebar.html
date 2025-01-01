@@ -9,15 +9,6 @@
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img alt="User Image" class="img-circle elevation-2" th:src="@{/admin/dist/img/emo.jpg}">
-            </div>
-            <div class="info">
-                <a class="d-block" href="/admin/profile" th:text="${session.loginUser}"></a>
-            </div>
-        </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview"
@@ -71,14 +62,6 @@
                         <i aria-hidden="true" class="fa fa-tags nav-icon"></i>
                         <p>
                             标签管理
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a th:class="${path}=='links'?'nav-link active':'nav-link'" th:href="@{/admin/links}">
-                        <i aria-hidden="true" class="fa fa-heart nav-icon"></i>
-                        <p>
-                            友情链接
                         </p>
                     </a>
                 </li>

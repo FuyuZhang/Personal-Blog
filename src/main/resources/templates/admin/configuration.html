@@ -98,57 +98,6 @@
                             </div><!-- /.card-body -->
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h3 class="card-title">底部设置</h3>
-                            </div> <!-- /.card-body -->
-                            <div class="card-body">
-                                <form id="footerForm" role="form">
-                                    <!-- input states -->
-                                    <div class="form-group">
-                                        <label class="control-label">底部About</label>
-                                        <input class="form-control" id="footerAbout" name="footerAbout"
-                                               placeholder="About" th:value="${configurations.get('footerAbout')}"
-                                               type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">底部备案号</label>
-                                        <input class="form-control" id="footerICP" name="footerICP" placeholder="备案号"
-                                               th:value="${configurations.get('footerICP')}"
-                                               type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">底部Copy Right</label>
-                                        <input class="form-control" id="footerCopyRight" name="footerCopyRight"
-                                               placeholder="Copy Right"
-                                               th:value="${configurations.get('footerCopyRight')}"
-                                               type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">底部Powered By</label>
-                                        <input class="form-control" id="footerPoweredBy" name="footerPoweredBy"
-                                               placeholder="Powered By"
-                                               th:value="${configurations.get('footerPoweredBy')}"
-                                               type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">底部Powered By URL</label>
-                                        <input class="form-control" id="footerPoweredByURL" name="footerPoweredByURL"
-                                               placeholder="Powered By URL"
-                                               th:value="${configurations.get('footerPoweredByURL')}"
-                                               type="text">
-                                    </div>
-                                    <div class="card-footer">
-                                        <button class="btn btn-danger float-right" id="updateFooterButton"
-                                                onsubmit="return false;"
-                                                type="button">确认修改
-                                        </button>
-                                    </div>
-                                </form>
-                            </div><!-- /.card-body -->
-                        </div>
-                    </div>
                 </div>
             </div><!-- /.container-fluid -->
         </div>

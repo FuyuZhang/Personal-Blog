@@ -3,7 +3,6 @@ package com.gdufs.finalexam.controller.blog;
 import cn.hutool.captcha.ShearCaptcha;
 import com.gdufs.finalexam.config.Constants;
 import com.gdufs.finalexam.entity.BlogComment;
-import com.gdufs.finalexam.entity.BlogLink;
 import com.gdufs.finalexam.service.*;
 import com.gdufs.finalexam.utils.*;
 import com.gdufs.finalexam.vo.BlogDetailVO;
@@ -23,15 +22,13 @@ import java.util.Map;
 @Controller
 public class MyBlogController {
     // 设置主题，默认使用 Constants.THEME3
-    public static String theme = Constants.THEME3;
+    public static String theme = Constants.THEME;
 
     // 注入相关的服务类
     @Resource
     private BlogService blogService;
     @Resource
     private TagService tagService;
-    @Resource
-    private LinkService linkService;
     @Resource
     private CommentService commentService;
     @Resource
@@ -176,29 +173,6 @@ public class MyBlogController {
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/list";
-    }
-
-    /**
-     * 友情链接页面
-     */
-    @GetMapping({"/link"})
-    public String link(HttpServletRequest request) {
-        request.setAttribute("pageName", "友链");
-        Map<Byte, List<BlogLink>> linkMap = linkService.getLinksForLinkPage();
-        // 根据友链的类别进行数据封装
-        if (linkMap != null) {
-            if (linkMap.containsKey((byte) 0)) {
-                request.setAttribute("favoriteLinks", linkMap.get((byte) 0));
-            }
-            if (linkMap.containsKey((byte) 1)) {
-                request.setAttribute("recommendLinks", linkMap.get((byte) 1));
-            }
-            if (linkMap.containsKey((byte) 2)) {
-                request.setAttribute("personalLinks", linkMap.get((byte) 2));
-            }
-        }
-        request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/" + theme + "/link";
     }
 
     /**

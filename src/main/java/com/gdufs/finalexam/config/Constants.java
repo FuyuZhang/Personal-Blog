@@ -15,20 +15,7 @@ public class Constants {
     public static final String FILE_UPLOAD_DIC = "C:/Users/fuyuzhang/Desktop/uploadblog/";
 
     /**
-     * 模板主题1的名称。
-     * 默认主题，用于展示基础样式。
+     * 模板主题
      */
-    public static final String THEME1 = "default";
-
-    /**
-     * 模板主题2的名称。
-     * "yummy-jekyll" 是一种风格更活泼的主题，可用于展示个性化博客。
-     */
-    public static final String THEME2 = "yummy-jekyll";
-
-    /**
-     * 模板主题3的名称。
-     * "amaze" 主题适用于更现代化、简洁的界面风格。
-     */
-    public static final String THEME3 = "amaze";
+    public static final String THEME = "amaze";
 }
