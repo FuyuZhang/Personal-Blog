@@ -54,13 +54,6 @@
             <version>8.0.17</version>
         </dependency>
 
-        <!-- 验证码 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-captcha</artifactId>
-            <version>5.8.7</version>
-        </dependency>
-
         <dependency>
             <groupId>com.atlassian.commonmark</groupId>
             <artifactId>commonmark</artifactId>

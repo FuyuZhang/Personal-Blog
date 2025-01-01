@@ -29,4 +29,3 @@ mybatis:
 # 指定mapper文件位置
   mapper-locations: classpath:mapper/*.xml
 
-# 上传

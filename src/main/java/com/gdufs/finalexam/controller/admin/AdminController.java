@@ -61,26 +61,15 @@ public class AdminController {
      *
      * @param userName   用户名
      * @param password   密码
-     * @param verifyCode 验证码
      * @param session    HttpSession 用于存储登录状态
      * @return 验证通过返回后台首页，失败返回登录页面
      */
     @PostMapping(value = "/login")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("password") String password,
-                        @RequestParam("verifyCode") String verifyCode,
                         HttpSession session) {
-        if (!StringUtils.hasText(verifyCode)) {
-            session.setAttribute("errorMsg", "验证码不能为空");
-            return "admin/login";
-        }
         if (!StringUtils.hasText(userName) || !StringUtils.hasText(password)) {
             session.setAttribute("errorMsg", "用户名或密码不能为空");
-            return "admin/login";
-        }
-        ShearCaptcha shearCaptcha = (ShearCaptcha) session.getAttribute("verifyCode");
-        if (shearCaptcha == null || !shearCaptcha.verify(verifyCode)) {
-            session.setAttribute("errorMsg", "验证码错误");
             return "admin/login";
         }
         AdminUser adminUser = adminUserService.login(userName, password);

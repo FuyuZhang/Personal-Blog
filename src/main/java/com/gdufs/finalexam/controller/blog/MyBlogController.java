@@ -181,18 +181,10 @@ public class MyBlogController {
     @PostMapping(value = "/blog/comment")
     @ResponseBody
     public Result comment(HttpServletRequest request, HttpSession session,
-                          @RequestParam Long blogId, @RequestParam String verifyCode,
-                          @RequestParam String commentator, @RequestParam String email,
-                          @RequestParam String websiteUrl, @RequestParam String commentBody) {
-        // 校验验证码是否为空
-        if (!StringUtils.hasText(verifyCode)) {
-            return ResultGenerator.genFailResult("验证码不能为空");
-        }
-        // 校验验证码是否正确
-        ShearCaptcha shearCaptcha = (ShearCaptcha) session.getAttribute("verifyCode");
-        if (shearCaptcha == null || !shearCaptcha.verify(verifyCode)) {
-            return ResultGenerator.genFailResult("验证码错误");
-        }
+                          @RequestParam Long blogId, @RequestParam String commentator,
+                          @RequestParam String email, @RequestParam String websiteUrl,
+                          @RequestParam String commentBody) {
+
         // 校验请求来源是否合法
         String ref = request.getHeader("Referer");
         if (!StringUtils.hasText(ref)) {

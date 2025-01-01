@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<!-- 根元素，定义了Thymeleaf命名空间 -->
 <head>
+    <!-- 定义字符编码为UTF-8 -->
     <meta charset="utf-8">
+    <!-- 浏览器兼容性设置 -->
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- 页面标题 -->
     <title>个人博客系统 | Login</title>
-    <!-- Tell the browser to be responsive to screen width -->
+    <!-- 响应式设计设置 -->
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="shortcut icon" th:href="@{/admin/dist/img/favicon.ico}"/>
-    <!-- Font Awesome -->
+    <!-- 快捷图标设置 -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
+    <!-- Font Awesome样式链接 -->
     <link rel="stylesheet" th:href="@{/admin/dist/css/font-awesome.min.css}">
-    <!-- Ionicons -->
+    <!-- Ionicons样式链接 -->
     <link rel="stylesheet" th:href="@{/admin/dist/css/ionicons.min.css}">
-    <!-- Theme style -->
+    <!-- 主题样式 -->
     <link rel="stylesheet" th:href="@{/admin/dist/css/adminlte.min.css}">
+    <!-- 自定义样式 -->
     <style>
         canvas {
             display: block;
             vertical-align: bottom;
         }
-
+        /* 粒子背景设置 */
         #particles {
             background-color: #F7FAFC;
             position: absolute;
@@ -30,61 +36,55 @@
     </style>
 </head>
 <body class="hold-transition login-page">
+<!-- 粒子背景容器 -->
 <div id="particles">
 </div>
+<!-- 登录框容器 -->
 <div class="login-box">
+    <!-- 登录框logo -->
     <div class="login-logo" style="color: #007bff;">
         <h1>个人博客系统</h1>
     </div>
-    <!-- /.login-logo -->
+    <!-- 登录框卡片 -->
     <div class="card">
+        <!-- 登录卡片主体 -->
         <div class="card-body login-card-body">
+            <!-- 登录提示信息 -->
             <p class="login-box-msg">欢迎使用, 请登录</p>
+            <!-- 登录表单 -->
             <form method="post" th:action="@{/admin/login}">
+                <!-- 错误信息提示 -->
                 <div class="form-group" th:if="${not #strings.isEmpty(session.errorMsg)}">
                     <div class="alert alert-danger" th:text="${session.errorMsg}"></div>
                 </div>
+                <!-- 用户名输入框 -->
                 <div class="form-group has-feedback">
                     <span class="fa fa-user form-control-feedback"></span>
                     <input class="form-control" id="userName" name="userName" placeholder="请输入账号" required="true"
                            type="text">
                 </div>
+                <!-- 密码输入框 -->
                 <div class="form-group has-feedback">
                     <span class="fa fa-lock form-control-feedback"></span>
                     <input class="form-control" id="password" name="password" placeholder="请输入密码" required="true"
                            type="password">
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <input class="form-control" name="verifyCode" placeholder="请输入验证码" required="true" type="text">
-                    </div>
-                    <div class="col-6">
-                        <img alt="单击图片刷新！" class="pointer" onclick="this.src='/common/kaptcha?d='+new Date()*1"
-                             th:src="@{/common/kaptcha}">
-                    </div>
-                </div>
-                <div class="form-group has-feedback"></div>
-                <div class="row">
-                    <div class="col-8">
-                    </div>
-                    <div class="col-4">
-                        <button class="btn btn-primary btn-block btn-flat" type="submit">登录
-                        </button>
-                    </div>
+
+                <!-- 登录按钮 -->
+                <div class="form-group text-center" style="margin-top: 30px;">
+                    <button class="btn btn-primary btn-block" style="max-width: 200px; margin: 0 auto;" type="submit">登录</button>
                 </div>
             </form>
-
         </div>
-        <!-- /.login-card-body -->
     </div>
 </div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
+<!-- jQuery库 -->
 <script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
-<!-- Bootstrap 4 -->
+<!-- Bootstrap 4库 -->
 <script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- 粒子背景JS -->
 <script th:src="@{/admin/dist/js/plugins/particles.js}"></script>
+<!-- 登录背景粒子JS -->
 <script th:src="@{/admin/dist/js/plugins/login-bg-particles.js}"></script>
 </body>
 </html>
