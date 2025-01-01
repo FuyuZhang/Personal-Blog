@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 后台分类管理控制器
  */
-@Controller
+@RestController
 @RequestMapping("/admin")
 public class CategoryController {
 

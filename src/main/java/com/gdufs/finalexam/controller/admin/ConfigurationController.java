@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 配置管理控制器
  */
-@Controller
+@RestController
 @RequestMapping("/admin")
 public class ConfigurationController {
 

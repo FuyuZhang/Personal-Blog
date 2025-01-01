@@ -4,7 +4,7 @@
     <!-- Brand Logo -->
     <a class="brand-link" th:href="@{/admin/index}">
         <img alt="ssm-cluster Logo" class="brand-image img-circle elevation-3" style="opacity: .8"
-             th:src="@{'/images/admin/logo.png'}">
+             th:src="@{/images/admin/logo.png}">
         <span class="brand-text font-weight-light">个人博客系统</span>
     </a>
     <!-- Sidebar -->
@@ -15,7 +15,7 @@
                 role="menu">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-header">Dashboard</li>
+                <li class="nav-header">仪表盘</li>
                 <li class="nav-item">
                     <a th:class="${path}=='index'?'nav-link active':'nav-link'" th:href="@{/admin/index}">
                         <i class="nav-icon fa fa-dashboard"></i>

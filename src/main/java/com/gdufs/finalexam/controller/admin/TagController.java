@@ -17,7 +17,7 @@ import java.util.Map;
  * 用以标识文章的标签
  * 标签管理控制器，提供对标签的增、删、查操作。
  */
-@Controller
+@RestController
 @RequestMapping("/admin")
 public class TagController {
 
