@@ -32,10 +32,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                              Object o) throws Exception {
         // 获取当前请求的路径
         String requestServletPath = request.getServletPath();
-        // 判断是否是Swagger相关路径，如果是则直接允许访问
-        if (requestServletPath.startsWith("/v2/api-docs") || requestServletPath.startsWith("/swagger-ui.html")) {
-            return true;
-        }
+
         // 判断是否是以 "/admin" 开头的请求，并且用户未登录
         if (requestServletPath.startsWith("/admin")
                 && null == request.getSession().getAttribute("loginUser")) {

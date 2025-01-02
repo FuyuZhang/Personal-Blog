@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 后台评论管理控制器
  */
-@RestController
+@Controller
 @RequestMapping("/admin")
 public class CommentController {
 

@@ -5,7 +5,10 @@ import com.gdufs.finalexam.utils.MyBlogUtil;
 import com.gdufs.finalexam.utils.Result;
 import com.gdufs.finalexam.utils.ResultGenerator;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +23,7 @@ import java.util.Random;
 /**
  * 文件上传控制器，处理文件上传操作。
  */
-@RestController
+@Controller
 @RequestMapping("/admin")
 public class UploadController {
 

@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Random;
 
 // 标注为一个控制器类，处理/admin路径下的请求
-@RestController
+@Controller
 @RequestMapping("/admin")
 public class BlogController {
 

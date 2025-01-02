@@ -2,7 +2,6 @@ package com.gdufs.finalexam.controller.admin;
 
 import com.gdufs.finalexam.entity.AdminUser;
 import com.gdufs.finalexam.service.*;
-import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +15,8 @@ import javax.servlet.http.HttpSession;
  * 该控制器包含管理员登录、后台首页数据统计展示、
  * 用户信息修改及登出功能。
  */
-@RestController
+@Controller
 @RequestMapping("/admin")
-@Api(tags = "管理员接口")
 public class AdminController {
 
     @Resource

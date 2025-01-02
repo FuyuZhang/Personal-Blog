@@ -53,10 +53,5 @@ public class MyBlogWebMvcConfigurer implements WebMvcConfigurer {
         registry.addResourceHandler("/upload/**")
                 // 映射到常量配置中的文件上传目录
                 .addResourceLocations("file:" + Constants.FILE_UPLOAD_DIC);
-        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
-        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
-
-
 }

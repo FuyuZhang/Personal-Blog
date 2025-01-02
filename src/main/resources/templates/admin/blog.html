@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!-- 引入admin模块的header-fragment -->
 <header th:replace="admin/header::header-fragment">
 </header>
 <body class="hold-transition sidebar-mini">
-<!-- 自定义样式，用于调整jqgrid表格的单元格样式 -->
 <style>
     .ui-jqgrid tr.jqgrow td {
         white-space: normal !important;
@@ -14,9 +12,9 @@
     }
 </style>
 <div class="wrapper">
-    <!-- 引入页面头部导航header-nav -->
+    <!-- 引入页面头header-fragment -->
     <div th:replace="admin/header::header-nav"></div>
-    <!-- 引入工具栏sidebar-fragment，并传递path参数 -->
+    <!-- 引入工具栏sidebar-fragment -->
     <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -28,19 +26,25 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <!-- 博客管理卡片 -->
                 <div class="card card-primary card-outline">
                     <div class="card-header">
                         <h3 class="card-title">博客管理</h3>
-                    </div> <!-- /.card-header -->
+                    </div> <!-- /.card-body -->
                     <div class="card-body">
-                        <!-- 博客管理操作按钮 -->
                         <div class="grid-btn">
-                            <button class="btn btn-success" onclick="addBlog()"><i class="fa fa-plus"></i>&nbsp;新增</button>
-                            <button class="btn btn-info" onclick="editBlog()"><i class="fa fa-edit"></i>&nbsp;修改</button>
-                            <button class="btn btn-danger" onclick="deleteBlog()"><i class="fa fa-trash-o"></i>&nbsp;删除</button>&nbsp;&nbsp;
+                            <button class="btn btn-success" onclick="addBlog()"><i
+                                    class="fa fa-plus"></i>&nbsp;新增
+                            </button>
+                            <button class="btn btn-info" onclick="editBlog()"><i
+                                    class="fa fa-edit"></i>&nbsp;修改
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteBlog()"><i
+                                    class="fa fa-trash-o"></i>&nbsp;删除
+                            </button>&nbsp;&nbsp;
                             <input class="form-control col-2" id="keyword" placeholder="关键字(标题/分类)" type="text">&nbsp;
-                            <button class="btn btn-info" onclick="search()"><i class="fa fa-search"></i>&nbsp;搜索</button>
+                            <button class="btn btn-info" onclick="search()"><i
+                                    class="fa fa-search"></i>&nbsp;搜索
+                            </button>
                         </div>
                         <!-- JqGrid必要DOM,用于创建表格展示列表数据 -->
                         <table class="table table-bordered" id="jqGrid"></table>
@@ -56,22 +60,20 @@
     <!-- 引入页脚footer-fragment -->
     <div th:replace="admin/footer::footer-fragment"></div>
 </div>
-<!-- jQuery库 -->
+<!-- jQuery -->
 <script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
-<!-- jQuery UI库 -->
+<!-- jQuery UI 1.11.4 -->
 <script th:src="@{/admin/plugins/jQueryUI/jquery-ui.min.js}"></script>
-<!-- Bootstrap 4库 -->
+<!-- Bootstrap 4 -->
 <script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- AdminLTE App -->
 <script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
-<!-- jqgrid库 -->
+<!-- jqgrid -->
 <script th:src="@{/admin/plugins/jqgrid-5.7.0/jquery.jqGrid.min.js}"></script>
 <script th:src="@{/admin/plugins/jqgrid-5.7.0/grid.locale-cn.js}"></script>
-<!-- sweetalert库 -->
+<!-- sweetalert -->
 <script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
-<!-- 公共脚本 -->
 <script th:src="@{/admin/dist/js/public.js}"></script>
-<!-- 博客管理脚本 -->
 <script th:src="@{/admin/dist/js/blog.js}"></script>
 </body>
 </html>

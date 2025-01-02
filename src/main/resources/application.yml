@@ -19,32 +19,13 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  # 关闭缓存，上线才开启
+# 关闭缓存，上线才开启
   thymeleaf:
     cache: false
-
-
-swagger2:
-  enable: true
-
-web:
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
-    static-path-pattern: /swagger-ui.html
 
 # 指定实体类
 mybatis:
   type-aliases-package: com.gdufs.finalexam.entity
-  # 指定mapper文件位置
+# 指定mapper文件位置
   mapper-locations: classpath:mapper/*.xml
 
-security:
-  FilterChainProxy:
-    - pattern: /v2/api-docs
-      access: permitAll
-    - pattern: /swagger-ui.html
-      access: permitAll
-    - pattern: /swagger-resources/**
-      access: permitAll
-    - pattern: /webjars/**
-      access: permitAll
