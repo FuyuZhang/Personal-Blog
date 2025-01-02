@@ -1,44 +1,73 @@
 package com.gdufs.finalexam.entity;
 
-import lombok.Data;
+import java.io.Serializable;
+import java.util.Objects;
 
 /**
- * AdminUser实体类类表示管理员用户（AdminUser）的实体，包含管理员用户的基本信息及相关操作。
- * 该类主要用于系统中的管理员身份验证与管理功能。
+ * 实体类 AdminUser
+ * 用于表示管理员用户的基本信息
  */
-@Data
-public class AdminUser {
+public class AdminUser implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Integer adminUserId;  // 管理员用户的唯一标识 ID
     private String loginUserName;  // 管理员用户的登录用户名
     private String loginPassword;  // 管理员用户的登录密码
     private String nickName;  // 管理员用户的昵称
     private Byte locked;  // 账户是否被锁定，1 为锁定，0 为未锁定
 
-    /**
-     * 设置登录用户名，去除前后空格
-     *
-     * @param loginUserName 登录用户名
-     */
+    // 无参构造方法
+    public AdminUser() {
+    }
+
+    // 全参构造方法
+    public AdminUser(Integer adminUserId, String loginUserName, String loginPassword, String nickName, Byte locked) {
+        this.adminUserId = adminUserId;
+        this.loginUserName = loginUserName;
+        this.loginPassword = loginPassword;
+        this.nickName = nickName;
+        this.locked = locked;
+    }
+
+    // Getter 和 Setter 方法
+    public Integer getAdminUserId() {
+        return adminUserId;
+    }
+
+    public void setAdminUserId(Integer adminUserId) {
+        this.adminUserId = adminUserId;
+    }
+
+    public String getLoginUserName() {
+        return loginUserName;
+    }
+
     public void setLoginUserName(String loginUserName) {
         this.loginUserName = loginUserName == null ? null : loginUserName.trim();
     }
 
-    /**
-     * 设置登录密码，去除前后空格
-     *
-     * @param loginPassword 登录密码
-     */
+    public String getLoginPassword() {
+        return loginPassword;
+    }
+
     public void setLoginPassword(String loginPassword) {
         this.loginPassword = loginPassword == null ? null : loginPassword.trim();
     }
 
-    /**
-     * 设置昵称，去除前后空格
-     *
-     * @param nickName 昵称
-     */
+    public String getNickName() {
+        return nickName;
+    }
+
     public void setNickName(String nickName) {
         this.nickName = nickName == null ? null : nickName.trim();
+    }
+
+    public Byte getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Byte locked) {
+        this.locked = locked;
     }
 
     /**

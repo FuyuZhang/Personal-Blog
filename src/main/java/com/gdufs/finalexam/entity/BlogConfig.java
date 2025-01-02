@@ -14,6 +14,10 @@ public class BlogConfig {
     private Date createTime;  // 配置项的创建时间
     private Date updateTime;  // 配置项的最后更新时间
 
+    public String getConfigName() {
+        return configName;
+    }
+
     /**
      * 设置配置项的名称，若传入为 null，则设置为空。
      *
@@ -23,6 +27,10 @@ public class BlogConfig {
         this.configName = configName == null ? null : configName.trim();
     }
 
+    public String getConfigValue() {
+        return configValue;
+    }
+
     /**
      * 设置配置项的值，若传入为 null，则设置为空。
      *
@@ -30,6 +38,32 @@ public class BlogConfig {
      */
     public void setConfigValue(String configValue) {
         this.configValue = configValue == null ? null : configValue.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 设置配置项的创建时间。
+     *
+     * @param createTime 创建时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     * 设置配置项的更新时间。
+     *
+     * @param updateTime 更新时间
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     @Override

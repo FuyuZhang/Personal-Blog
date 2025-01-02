@@ -4,13 +4,14 @@ import com.gdufs.finalexam.service.CategoryService;
 import com.gdufs.finalexam.utils.PageQueryUtil;
 import com.gdufs.finalexam.utils.Result;
 import com.gdufs.finalexam.utils.ResultGenerator;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -35,7 +36,7 @@ public class CategoryController {
     /**
      * 获取分类列表
      */
-    @RequestMapping(value = "/categories/list", method = RequestMethod.GET)
+    @GetMapping("/categories/list")
     @ResponseBody
     public Result list(@RequestParam Map<String, Object> params) {
         if (ObjectUtils.isEmpty(params.get("page")) || ObjectUtils.isEmpty(params.get("limit"))) {
@@ -48,7 +49,7 @@ public class CategoryController {
     /**
      * 添加分类
      */
-    @RequestMapping(value = "/categories/save", method = RequestMethod.POST)
+    @PostMapping("/categories/save")
     @ResponseBody
     public Result save(@RequestParam("categoryName") String categoryName,
                        @RequestParam("categoryIcon") String categoryIcon) {
@@ -68,7 +69,7 @@ public class CategoryController {
     /**
      * 修改分类
      */
-    @RequestMapping(value = "/categories/update", method = RequestMethod.POST)
+    @PostMapping("/categories/update")
     @ResponseBody
     public Result update(@RequestParam("categoryId") Integer categoryId,
                          @RequestParam("categoryName") String categoryName,
@@ -89,7 +90,7 @@ public class CategoryController {
     /**
      * 删除分类
      */
-    @RequestMapping(value = "/categories/delete", method = RequestMethod.POST)
+    @PostMapping("/categories/delete")
     @ResponseBody
     public Result delete(@RequestBody Integer[] ids) {
         if (ids.length < 1) {

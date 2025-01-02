@@ -3,12 +3,12 @@ package com.gdufs.finalexam.controller.admin;
 import com.gdufs.finalexam.service.ConfigService;
 import com.gdufs.finalexam.utils.Result;
 import com.gdufs.finalexam.utils.ResultGenerator;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 配置管理控制器
@@ -76,32 +76,4 @@ public class ConfigurationController {
         return ResultGenerator.genSuccessResult(updateResult > 0);
     }
 
-    /**
-     * 更新页脚信息（关于、ICP、版权、PoweredBy信息等）
-     */
-    @PostMapping("/configurations/footer")
-    @ResponseBody
-    public Result footer(@RequestParam(value = "footerAbout", required = false) String footerAbout,
-                         @RequestParam(value = "footerICP", required = false) String footerICP,
-                         @RequestParam(value = "footerCopyRight", required = false) String footerCopyRight,
-                         @RequestParam(value = "footerPoweredBy", required = false) String footerPoweredBy,
-                         @RequestParam(value = "footerPoweredByURL", required = false) String footerPoweredByURL) {
-        int updateResult = 0;
-        if (StringUtils.hasText(footerAbout)) {
-            updateResult += configService.updateConfig("footerAbout", footerAbout);
-        }
-        if (StringUtils.hasText(footerICP)) {
-            updateResult += configService.updateConfig("footerICP", footerICP);
-        }
-        if (StringUtils.hasText(footerCopyRight)) {
-            updateResult += configService.updateConfig("footerCopyRight", footerCopyRight);
-        }
-        if (StringUtils.hasText(footerPoweredBy)) {
-            updateResult += configService.updateConfig("footerPoweredBy", footerPoweredBy);
-        }
-        if (StringUtils.hasText(footerPoweredByURL)) {
-            updateResult += configService.updateConfig("footerPoweredByURL", footerPoweredByURL);
-        }
-        return ResultGenerator.genSuccessResult(updateResult > 0);
-    }
 }

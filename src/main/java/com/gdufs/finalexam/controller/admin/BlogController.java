@@ -8,15 +8,15 @@ import com.gdufs.finalexam.utils.MyBlogUtil;
 import com.gdufs.finalexam.utils.PageQueryUtil;
 import com.gdufs.finalexam.utils.Result;
 import com.gdufs.finalexam.utils.ResultGenerator;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -227,6 +227,7 @@ public class BlogController {
         }
     }
 
+
     // 批量删除博客
     @PostMapping("/blogs/delete")
     @ResponseBody
@@ -242,5 +243,4 @@ public class BlogController {
             return ResultGenerator.genFailResult("删除失败");
         }
     }
-
 }

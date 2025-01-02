@@ -5,7 +5,7 @@ import com.gdufs.finalexam.entity.AdminUser;
 import com.gdufs.finalexam.service.AdminUserService;
 import com.gdufs.finalexam.utils.MD5Util;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Service
 public class AdminUserServiceImpl implements AdminUserService {

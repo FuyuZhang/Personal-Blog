@@ -1,16 +1,17 @@
 package com.gdufs.finalexam.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
-
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Blog实体类表示博客（Blog）的实体，包含博客的基本信息及相关操作。
  * 该类主要用于系统中博客的存储、显示和管理功能。
  */
-@Data
-public class Blog {
+public class Blog implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Long blogId;  // 博客的唯一标识 ID
     private String blogTitle;  // 博客的标题
     private String blogSubUrl;  // 博客的子 URL，用于访问博客的链接
@@ -22,55 +23,150 @@ public class Blog {
     private Long blogViews;  // 博客的访问量或阅读次数
     private Byte enableComment;  // 是否允许评论，1 为允许，0 为不允许
     private Byte isDeleted;  // 博客是否已删除，1 为已删除，0 为未删除
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;  // 博客的创建时间，使用 JsonFormat 注解进行时间格式化
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;  // 博客的更新时间
+
     private String blogContent;  // 博客的内容，通常是文章的正文部分
 
-    /**
-     * 设置博客标题，去除前后空格
-     *
-     * @param blogTitle 博客标题
-     */
+
+    //构造方法
+    public Blog() {
+    }
+
+    public Blog(Long blogId, String blogTitle, String blogSubUrl, String blogCoverImage, Integer blogCategoryId, String blogCategoryName, String blogTags, Byte blogStatus, Long blogViews, Byte enableComment, Byte isDeleted, Date createTime, Date updateTime, String blogContent) {
+        this.blogId = blogId;
+        this.blogTitle = blogTitle;
+        this.blogSubUrl = blogSubUrl;
+        this.blogCoverImage = blogCoverImage;
+        this.blogCategoryId = blogCategoryId;
+        this.blogCategoryName = blogCategoryName;
+        this.blogTags = blogTags;
+        this.blogStatus = blogStatus;
+        this.blogViews = blogViews;
+        this.enableComment = enableComment;
+        this.isDeleted = isDeleted;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.blogContent = blogContent;
+    }
+
+    // Getter 和 Setter 方法
+    public Long getBlogId() {
+        return blogId;
+    }
+
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
+    }
+
+    public String getBlogTitle() {
+        return blogTitle;
+    }
+
     public void setBlogTitle(String blogTitle) {
         this.blogTitle = blogTitle == null ? null : blogTitle.trim();
     }
 
-    /**
-     * 设置博客封面图像的路径或 URL，去除前后空格
-     *
-     * @param blogCoverImage 博客封面图像
-     */
+    public String getBlogSubUrl() {
+        return blogSubUrl;
+    }
+
+    public void setBlogSubUrl(String blogSubUrl) {
+        this.blogSubUrl = blogSubUrl == null ? null : blogSubUrl.trim();
+    }
+
+    public String getBlogCoverImage() {
+        return blogCoverImage;
+    }
+
     public void setBlogCoverImage(String blogCoverImage) {
         this.blogCoverImage = blogCoverImage == null ? null : blogCoverImage.trim();
     }
 
-    /**
-     * 设置博客类别名称，去除前后空格
-     *
-     * @param blogCategoryName 博客类别名称
-     */
+    public Integer getBlogCategoryId() {
+        return blogCategoryId;
+    }
+
+    public void setBlogCategoryId(Integer blogCategoryId) {
+        this.blogCategoryId = blogCategoryId;
+    }
+
+    public String getBlogCategoryName() {
+        return blogCategoryName;
+    }
+
     public void setBlogCategoryName(String blogCategoryName) {
         this.blogCategoryName = blogCategoryName == null ? null : blogCategoryName.trim();
     }
 
-    /**
-     * 设置博客标签，去除前后空格
-     *
-     * @param blogTags 博客标签
-     */
+    public String getBlogTags() {
+        return blogTags;
+    }
+
     public void setBlogTags(String blogTags) {
         this.blogTags = blogTags == null ? null : blogTags.trim();
     }
 
-    /**
-     * 设置博客内容，去除前后空格
-     *
-     * @param blogContent 博客内容
-     */
+    public Byte getBlogStatus() {
+        return blogStatus;
+    }
+
+    public void setBlogStatus(Byte blogStatus) {
+        this.blogStatus = blogStatus;
+    }
+
+    public Long getBlogViews() {
+        return blogViews;
+    }
+
+    public void setBlogViews(Long blogViews) {
+        this.blogViews = blogViews;
+    }
+
+    public Byte getEnableComment() {
+        return enableComment;
+    }
+
+    public void setEnableComment(Byte enableComment) {
+        this.enableComment = enableComment;
+    }
+
+    public Byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getBlogContent() {
+        return blogContent;
+    }
+
     public void setBlogContent(String blogContent) {
         this.blogContent = blogContent == null ? null : blogContent.trim();
     }
+
 
     /**
      * 重写 toString 方法，输出 Blog 对象的详细信息

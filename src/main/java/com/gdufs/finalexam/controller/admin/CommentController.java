@@ -4,13 +4,14 @@ import com.gdufs.finalexam.service.CommentService;
 import com.gdufs.finalexam.utils.PageQueryUtil;
 import com.gdufs.finalexam.utils.Result;
 import com.gdufs.finalexam.utils.ResultGenerator;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**

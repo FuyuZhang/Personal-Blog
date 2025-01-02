@@ -2,13 +2,14 @@ package com.gdufs.finalexam.controller.admin;
 
 import com.gdufs.finalexam.entity.AdminUser;
 import com.gdufs.finalexam.service.*;
+import com.gdufs.finalexam.utils.Result;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * @Description 后台管理功能控制器。
@@ -19,19 +20,21 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Resource
+    // 使用 @Autowired 注解进行依赖注入，符合Spring Boot依赖注入规范
+    @Autowired
     private AdminUserService adminUserService;
-    @Resource
+    @Autowired
     private BlogService blogService;
-    @Resource
+    @Autowired
     private CategoryService categoryService;
-    @Resource
+    @Autowired
     private TagService tagService;
-    @Resource
+    @Autowired
     private CommentService commentService;
 
     /**
      * 登录页面
+     *
      * @return 返回登录页面模板路径
      */
     @GetMapping({"/login"})
@@ -58,10 +61,10 @@ public class AdminController {
     /**
      * 登录校验
      *
-     * @param userName   用户名
-     * @param password   密码
-     * @param session    HttpSession 用于存储登录状态
-     * @return 验证通过返回后台首页，失败返回登录页面
+     * @param userName 用户名
+     * @param password 密码
+     * @param session  HttpSession 用于存储登录状态
+     * @return 验证通过返回后台首页，失败返回登录页面，通过Result对象统一封装响应结果
      */
     @PostMapping(value = "/login")
     public String login(@RequestParam("userName") String userName,
@@ -107,7 +110,7 @@ public class AdminController {
      * @param request          HttpServletRequest 用于获取当前登录用户ID
      * @param originalPassword 原密码
      * @param newPassword      新密码
-     * @return 成功返回 "success"，失败返回错误信息
+     * @return 成功返回表示成功的Result对象，失败返回相应错误信息的Result对象
      */
     @PostMapping("/profile/password")
     @ResponseBody
@@ -132,7 +135,7 @@ public class AdminController {
      * @param request       HttpServletRequest 用于获取当前登录用户ID
      * @param loginUserName 新用户名
      * @param nickName      新昵称
-     * @return 成功返回 "success"，失败返回错误信息
+     * @return 成功返回表示成功的Result对象，失败返回相应错误信息的Result对象
      */
     @PostMapping("/profile/name")
     @ResponseBody

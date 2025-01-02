@@ -5,21 +5,20 @@ import com.gdufs.finalexam.entity.BlogComment;
 import com.gdufs.finalexam.service.*;
 import com.gdufs.finalexam.utils.*;
 import com.gdufs.finalexam.vo.BlogDetailVO;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 博客控制器，负责处理博客相关的请求
  */
 @Controller
 public class MyBlogController {
+
     // 设置主题，默认使用 Constants.THEME3
     public static String theme = Constants.THEME;
 

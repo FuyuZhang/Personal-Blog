@@ -5,8 +5,7 @@ import com.gdufs.finalexam.entity.BlogConfig;
 import com.gdufs.finalexam.service.ConfigService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -19,19 +18,13 @@ public class ConfigServiceImpl implements ConfigService {
     private BlogConfigDao blogConfigDao;
 
     public static final String websiteName = "personal blog";
-    public static final String websiteDescription = "blog是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建";
+    public static final String websiteDescription = "期末搭建的超级容易破防的个人博客";
     public static final String websiteLogo = "/admin/dist/img/logo2.png";
-    public static final String websiteIcon = "/admin/dist/img/favicon.png";
+    public static final String websiteIcon = "/admin/dist/img/favicon.ico";
 
-    public static final String yourAvatar = "/admin/dist/img/13.png";
-    public static final String yourEmail = "517797680@qq.com";
-    public static final String yourName = "stone";
-
-    public static final String footerAbout = "The blog. have fun.";
-    public static final String footerICP = "浙ICP备 xxxxxx-x号";
-    public static final String footerCopyRight = "@2023";
-    public static final String footerPoweredBy = "personal blog";
-    public static final String footerPoweredByURL = "##";
+    public static final String yourAvatar = "/admin/dist/img/avatar.png";
+    public static final String yourEmail = "yyyyyyyyy@qq.com";
+    public static final String yourName = "JF";
 
     @Override
     public int updateConfig(String configName, String configValue) {
@@ -71,21 +64,7 @@ public class ConfigServiceImpl implements ConfigService {
             if ("yourName".equals(config.getKey()) && !StringUtils.hasText(config.getValue())) {
                 config.setValue(yourName);
             }
-            if ("footerAbout".equals(config.getKey()) && !StringUtils.hasText(config.getValue())) {
-                config.setValue(footerAbout);
-            }
-            if ("footerICP".equals(config.getKey()) && !StringUtils.hasText(config.getValue())) {
-                config.setValue(footerICP);
-            }
-            if ("footerCopyRight".equals(config.getKey()) && !StringUtils.hasText(config.getValue())) {
-                config.setValue(footerCopyRight);
-            }
-            if ("footerPoweredBy".equals(config.getKey()) && !StringUtils.hasText(config.getValue())) {
-                config.setValue(footerPoweredBy);
-            }
-            if ("footerPoweredByURL".equals(config.getKey()) && !StringUtils.hasText(config.getValue())) {
-                config.setValue(footerPoweredByURL);
-            }
+
         }
         return configMap;
     }

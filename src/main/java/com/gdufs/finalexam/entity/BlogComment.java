@@ -29,58 +29,100 @@ public class BlogComment {
     private Byte commentStatus;  // 评论的状态，标识评论是否通过审核，1 为已通过，0 为未通过
     private Byte isDeleted;  // 评论是否已删除，1 为已删除，0 为未删除
 
-    /**
-     * 设置评论者名称，若传入为 null，则设置为空。
-     *
-     * @param commentator 评论者名称
-     */
+    public Long getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(Long commentId) {
+        this.commentId = commentId;
+    }
+
+    public Long getBlogId() {
+        return blogId;
+    }
+
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
+    }
+
+    public String getCommentator() {
+        return commentator;
+    }
+
     public void setCommentator(String commentator) {
         this.commentator = commentator == null ? null : commentator.trim();
     }
 
-    /**
-     * 设置评论者邮箱地址，若传入为 null，则设置为空。
-     *
-     * @param email 评论者邮箱地址
-     */
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }
 
-    /**
-     * 设置评论者个人网站 URL，若传入为 null，则设置为空。
-     *
-     * @param websiteUrl 评论者网站 URL
-     */
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
     public void setWebsiteUrl(String websiteUrl) {
         this.websiteUrl = websiteUrl == null ? null : websiteUrl.trim();
     }
 
-    /**
-     * 设置评论内容，若传入为 null，则设置为空。
-     *
-     * @param commentBody 评论内容
-     */
+    public String getCommentBody() {
+        return commentBody;
+    }
+
     public void setCommentBody(String commentBody) {
         this.commentBody = commentBody == null ? null : commentBody.trim();
     }
 
-    /**
-     * 设置评论者的 IP 地址，若传入为 null，则设置为空。
-     *
-     * @param commentatorIp 评论者的 IP 地址
-     */
+    public Date getCommentCreateTime() {
+        return commentCreateTime;
+    }
+
+    public void setCommentCreateTime(Date commentCreateTime) {
+        this.commentCreateTime = commentCreateTime;
+    }
+
+    public String getCommentatorIp() {
+        return commentatorIp;
+    }
+
     public void setCommentatorIp(String commentatorIp) {
         this.commentatorIp = commentatorIp == null ? null : commentatorIp.trim();
     }
 
-    /**
-     * 设置评论回复内容，若传入为 null，则设置为空。
-     *
-     * @param replyBody 回复内容
-     */
+    public String getReplyBody() {
+        return replyBody;
+    }
+
     public void setReplyBody(String replyBody) {
         this.replyBody = replyBody == null ? null : replyBody.trim();
+    }
+
+    public Date getReplyCreateTime() {
+        return replyCreateTime;
+    }
+
+    public void setReplyCreateTime(Date replyCreateTime) {
+        this.replyCreateTime = replyCreateTime;
+    }
+
+    public Byte getCommentStatus() {
+        return commentStatus;
+    }
+
+    public void setCommentStatus(Byte commentStatus) {
+        this.commentStatus = commentStatus;
+    }
+
+    public Byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override

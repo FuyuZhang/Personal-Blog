@@ -14,6 +14,39 @@ public class BlogTagRelation {
     private Integer tagId;  // 标签的 ID，表示与该博客相关联的标签
     private Date createTime;  // 关联关系的创建时间
 
+
+    public Long getRelationId() {
+        return relationId;
+    }
+
+    public void setRelationId(Long relationId) {
+        this.relationId = relationId;
+    }
+
+    public Long getBlogId() {
+        return blogId;
+    }
+
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
+    }
+
+    public Integer getTagId() {
+        return tagId;
+    }
+
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

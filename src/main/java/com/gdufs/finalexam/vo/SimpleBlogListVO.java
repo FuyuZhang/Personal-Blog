@@ -1,6 +1,7 @@
 package com.gdufs.finalexam.vo;
 
 import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -15,4 +16,20 @@ public class SimpleBlogListVO implements Serializable {
 
     // 博客的标题
     private String blogTitle;
+
+    public Long getBlogId() {
+        return blogId;
+    }
+
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
+    }
+
+    public String getBlogTitle() {
+        return blogTitle;
+    }
+
+    public void setBlogTitle(String blogTitle) {
+        this.blogTitle = blogTitle;
+    }
 }

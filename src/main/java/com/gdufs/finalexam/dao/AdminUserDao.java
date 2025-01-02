@@ -1,6 +1,7 @@
 package com.gdufs.finalexam.dao;
 
 import com.gdufs.finalexam.entity.AdminUser;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.Param;
  * - 根据用户名和密码进行用户登录验证
  * - 根据主键查询、更新 AdminUser 信息
  */
+@Mapper
 public interface AdminUserDao {
 
     /**

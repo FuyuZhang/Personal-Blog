@@ -15,26 +15,58 @@ public class BlogCategory {
     private String categoryIcon;  // 分类的图标路径或 URL
     private Integer categoryRank;  // 分类的排序值，通常用于确定分类的显示顺序
     private Byte isDeleted;  // 分类是否已删除，1 为已删除，0 为未删除
-
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;  // 分类的创建时间，使用 JsonFormat 注解进行时间格式化
 
-    /**
-     * 设置分类名称，若传入为 null，则设置为空。
-     *
-     * @param categoryName 分类名称
-     */
+
+
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName == null ? null : categoryName.trim();
     }
 
-    /**
-     * 设置分类图标，若传入为 null，则设置为空。
-     *
-     * @param categoryIcon 分类图标路径
-     */
+    public String getCategoryIcon() {
+        return categoryIcon;
+    }
+
     public void setCategoryIcon(String categoryIcon) {
         this.categoryIcon = categoryIcon == null ? null : categoryIcon.trim();
+    }
+
+    public Integer getCategoryRank() {
+        return categoryRank;
+    }
+
+    public void setCategoryRank(Integer categoryRank) {
+        this.categoryRank = categoryRank;
+    }
+
+    public Byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
